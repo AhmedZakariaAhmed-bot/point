@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شوێن‌دۆز | باشترین شوێن بۆ گەڕان</title>
+    
+    <!-- Google Fonts (بۆ فۆنتی کوردی) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome (بۆ ئایکۆنەکان) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* CSS Styles */
+        :root {
+            --primary-color: #e84343;
+            --dark-blue: #2c3e50;
+            --light-gray: #f8f9fa;
+            --text-color: #333;
+            --white-color: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--light-gray);
+            direction: rtl; /* گرنگە بۆ زمانی کوردی */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ----- Header & Navigation ----- */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 20px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--white-color);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 25px; /* Margin is now on the right */
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--white-color);
+            font-size: 16px;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        nav ul li a.active,
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+
+        /* ----- Hero Section ----- */
+        .hero-section {
+            background-image: linear-gradient(rgba(45, 52, 54, 0.6), rgba(45, 52, 54, 0.6)), url('https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=2036&auto=format&fit=crop');
+            height: 75vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white-color);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 52px;
+            font-weight: 700;
+            margin: 0 0 15px 0;
+            line-height: 1.4;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        /* ----- Search Form ----- */
+        .search-form {
+            display: flex;
+            background: var(--white-color);
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+        }
+        
+        .input-group:not(:last-child) {
+            border-left: 1px solid #e0e0e0;
+        }
+
+        .input-group i {
+            font-size: 20px;
+            color: #888;
+            margin: 0 15px;
+        }
+
+        .input-group input {
+            border: none;
+            outline: none;
+            width: 100%;
+            padding: 10px 0;
+            font-size: 16px;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+
+        .search-button {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border: none;
+            border-radius: 6px;
+            padding: 15px 35px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Vazirmatn', sans-serif;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-right: 10px; /* Spacing from input */
+        }
+
+        .search-button:hover {
+            background-color: #d63031;
+        }
+        
+        /* ----- Categories Section ----- */
+        .categories-section {
+            padding: 60px 0;
+            background-color: var(--white-color); /* The section itself is white */
+            margin-top: -80px; /* Pulls the section up over the hero image */
+            position: relative;
+            z-index: 50;
+            padding-top: 120px; /* Adds space for the overlapping part */
+        }
+        
+        .categories-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .category-box {
+            background: var(--white-color);
+            border: 1px solid #eaeaea;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            width: 180px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .category-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+        }
+
+        .category-box .icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .category-box h3 {
+            font-size: 18px;
+            margin: 0 0 5px 0;
+            color: var(--text-color);
+        }
+
+        .category-box p {
+            font-size: 14px;
+            color: #777;
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">شوێن<span>دۆز</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">سەرەکی</a></li>
+                    <li><a href="#">چۆن کاردەکات</a></li>
+                    <li><a href="#">گەڕان</a></li>
+                    <li><a href="#">پێداچوونەوە</a></li>
+                    <li><a href="#">بلۆگ</a></li>
+                    <li><a href="#">پەیوەندی</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>باشترین شوێن بۆ دۆزینەوە و گەڕانی هەموو ئەوەی پێویستتە</h1>
+            <p>باشترین شوێن، چێشتخانە، هۆتێل، خانووبەرە و زۆری تر تەنها بە یەک کرتە بدۆزەرەوە.</p>
+            
+            <!-- Search Form -->
+            <form class="search-form">
+                <div class="input-group">
+                    <i class="fa-solid fa-utensils"></i>
+                    <input type="text" placeholder="چی؟ نموونە: چێشتخانە، بازاڕ، ئۆتۆمبێل">
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <input type="text" placeholder="شوێن: نموونە: سلێمانی، هەولێر">
+                </div>
+                <button type="submit" class="search-button">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    گەڕان
+                </button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <div class="container">
+            <div class="categories-container">
+                <div class="category-box">
+                    <div class="icon"><i class="fa-solid fa-store"></i></div>
+                    <h3>چێشتخانە</h3>
+                    <p>١٥٠ شوێن</p>
+                </div>
+                <div class="category-box">
+                    <div class="icon"><i class="fa-solid fa-map-signs"></i></div>
+                    <h3>شوێنی گەشتیاری</h3>
+                    <p>٢١٤ شوێن</p>
+                </div>
+                <div class="category-box">
+                    <div class="icon"><i class="fa-solid fa-hotel"></i></div>
+                    <h3>هۆتێل</h3>
+                    <p>١٨٥ شوێن</p>
+                </div>
+                <div class="category-box">
+                    <div class="icon"><i class="fa-solid fa-pills"></i></div>
+                    <h3>تەندروستی</h3>
+                    <p>٢٠٠ شوێن</p>
+                </div>
+                <div class="category-box">
+                    <div class="icon"><i class="fa-solid fa-car"></i></div>
+                    <h3>ئۆتۆمبێل</h3>
+                    <p>١٢٠ شوێن</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
