@@ -1,1 +1,256 @@
 
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>گەڕان - Daleel</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Your Custom CSS File -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- ستایلی تایبەت بەم لاپەڕەیە -->
+    <style>
+        /* ستایلی زیادکراو بۆ لاپەڕەی گەڕان */
+        .page-header {
+            background-image: linear-gradient(rgba(45, 52, 54, 0.8), rgba(45, 52, 54, 0.8)), url('https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=1974');
+            padding: 100px 0;
+            text-align: center;
+            color: var(--white-color);
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            margin: 0;
+            font-weight: 800;
+        }
+
+        .explore-layout {
+            display: flex;
+            gap: 30px;
+            padding: 80px 0;
+        }
+
+        .filters-sidebar {
+            width: 280px;
+            flex-shrink: 0;
+        }
+
+        .filter-widget {
+            background: var(--white-color);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .filter-widget h4 {
+            font-size: 20px;
+            margin: 0 0 20px 0;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .filter-widget ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .filter-widget ul li {
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .filter-widget ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+
+        .filter-widget ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .count-badge {
+            background-color: var(--light-gray);
+            color: #888;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        
+        .results-area {
+            flex-grow: 1;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            background: var(--white-color);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .results-header p {
+            margin: 0;
+        }
+
+        .results-header select {
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header (هەمان هێدەری لاپەڕەی سەرەکی) -->
+    <header style="position: static; background-color: var(--secondary-color);">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Daleel<span>.</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">سەرەکی</a></li>
+                    <li><a href="explore.html" class="active">گەڕان</a></li>
+                    <li><a href="#">بلۆگ</a></li>
+                    <li><a href="#">دەربارە</a></li>
+                    <li><a href="#">پەیوەندی</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>هەموو شوێنەکان بگەڕێ</h1>
+        </div>
+    </div>
+    
+    <!-- Explore Layout -->
+    <div class="container explore-layout">
+        <!-- Filters Sidebar (ستوونی ڕاست) -->
+        <aside class="filters-sidebar">
+            <div class="filter-widget">
+                <h4>پۆلێنەکان</h4>
+                <ul>
+                    <li><a href="#">چێشتخانە</a> <span class="count-badge">85</span></li>
+                    <li><a href="#">هۆتێل</a> <span class="count-badge">42</span></li>
+                    <li><a href="#">قاوەخانە</a> <span class="count-badge">56</span></li>
+                    <li><a href="#">بازاڕ</a> <span class="count-badge">31</span></li>
+                    <li><a href="#">شوێنی گەشتیاری</a> <span class="count-badge">22</span></li>
+                    <li><a href="#">تەندروستی</a> <span class="count-badge">60</span></li>
+                </ul>
+            </div>
+            
+            <div class="filter-widget">
+                <h4>گەڕان بەپێی شار</h4>
+                <ul>
+                    <li><a href="#">سلێمانی</a> <span class="count-badge">120</span></li>
+                    <li><a href="#">هەولێر</a> <span class="count-badge">95</span></li>
+                    <li><a href="#">دهۆک</a> <span class="count-badge">50</span></li>
+                    <li><a href="#">کەرکوک</a> <span class="count-badge">31</span></li>
+                </ul>
+            </div>
+
+            <div class="filter-widget">
+                <h4>هەڵسەنگاندن</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-star" style="color:#f1c40f;"></i><i class="fas fa-star" style="color:#f1c40f;"></i><i class="fas fa-star" style="color:#f1c40f;"></i><i class="fas fa-star" style="color:#f1c40f;"></i><i class="fas fa-star" style="color:#f1c40f;"></i> (٥ ئەستێرە)</a></li>
+                    <li><a href="#"><i class="fas fa-star" style="color:#f1c40f;"></i><i class="fas fa-star" style="color:#f1c40f;"></i><i class="fas fa-star" style="color:#f1c40f;"></i><i class="fas fa-star" style="color:#f1c40f;"></i><i class="far fa-star" style="color:#f1c40f;"></i> (٤ ئەستێرە و زیاتر)</a></li>
+                     <li><a href="#"><i class="fas fa-star" style="color:#f1c40f;"></i><i class="fas fa-star" style="color:#f1c40f;"></i><i class="fas fa-star" style="color:#f1c40f;"></i><i class="far fa-star" style="color:#f1c40f;"></i><i class="far fa-star" style="color:#f1c40f;"></i> (٣ ئەستێرە و زیاتر)</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Results Area (ستوونی چەپ) -->
+        <main class="results-area">
+            <div class="results-header">
+                <p><strong>٢٩٦</strong> ئەنجام دۆزرایەوە</p>
+                <select>
+                    <option>ڕیزکردن بەپێی: نوێترین</option>
+                    <option>ڕیزکردن بەپێی: بەرزترین هەڵسەنگاندن</option>
+                    <option>ڕیزکردن بەپێی: زۆرترین سەردان</option>
+                </select>
+            </div>
+
+            <!-- Grid of listings -->
+            <div class="listings-grid">
+                <!-- دووبارەکردنەوەی کارتی شوێنەکان وەک لاپەڕەی سەرەکی -->
+                <div class="listing-card">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1974" alt="چێشتخانە">
+                    <div class="listing-content">
+                        <span class="listing-category">چێشتخانە</span>
+                        <h3 class="listing-title">چێشتخانەی شاری جوان</h3>
+                        <p class="listing-location"><i class="fas fa-map-marker-alt"></i> سلێمانی، شەقامی سالم</p>
+                        <div class="listing-footer">
+                            <div class="rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span>4.5</span>
+                            </div>
+                            <div class="price">$$$</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="listing-card">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070" alt="هۆتێل">
+                    <div class="listing-content">
+                        <span class="listing-category">هۆتێل</span>
+                        <h3 class="listing-title">هۆتێل گراند میلینیۆم</h3>
+                        <p class="listing-location"><i class="fas fa-map-marker-alt"></i> هەولێر، شەقامی شەست مەتری</p>
+                        <div class="listing-footer">
+                            <div class="rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                            <div class="price">$$$$</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="listing-card">
+                    <img src="https://images.unsplash.com/photo-1519965942250-98455728a3f8?q=80&w=1974" alt="قاوەخانە">
+                    <div class="listing-content">
+                        <span class="listing-category">قاوەخانە</span>
+                        <h3 class="listing-title">کافێی گۆشە</h3>
+                        <p class="listing-location"><i class="fas fa-map-marker-alt"></i> دهۆک، پارکی نەورۆز</p>
+                        <div class="listing-footer">
+                            <div class="rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                <span>4.0</span>
+                            </div>
+                            <div class="price">$$</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- دەتوانیت کارتی زیاتر لێرە دابنێیت -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer (هەمان فووتەری لاپەڕەی سەرەکی) -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- ... فووتەر وەک خۆی لێرە دابنێ ... -->
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>مافی لەبەرگرتنەوەی پارێزراوە بۆ Daleel © ٢٠٢٣</p>
+        </div>
+    </footer>
+
+</body>
+</html>
