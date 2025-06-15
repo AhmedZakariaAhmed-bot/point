@@ -3,24 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شوێن‌دۆز | باشترین شوێن بۆ گەڕان</title>
+    <title>Daleel | ڕێبەری تۆ بۆ دۆزینەوەی باشترینەکان</title>
     
-    <!-- Google Fonts (بۆ فۆنتی کوردی) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;800&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome (بۆ ئایکۆنەکان) -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
         /* CSS Styles */
         :root {
             --primary-color: #e84343;
-            --dark-blue: #2c3e50;
+            --secondary-color: #2c3e50;
             --light-gray: #f8f9fa;
             --text-color: #333;
             --white-color: #ffffff;
+            --border-color: #e0e0e0;
         }
 
         body {
@@ -28,7 +29,8 @@
             padding: 0;
             font-family: 'Vazirmatn', sans-serif;
             background-color: var(--light-gray);
-            direction: rtl; /* گرنگە بۆ زمانی کوردی */
+            color: var(--text-color);
+            direction: rtl;
         }
 
         .container {
@@ -37,33 +39,53 @@
             padding: 0 20px;
         }
 
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin: 0 0 10px 0;
+            color: var(--secondary-color);
+        }
+
+        .section-title p {
+            font-size: 16px;
+            color: #777;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
         /* ----- Header & Navigation ----- */
         header {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 100;
+            z-index: 1000;
             padding: 20px 0;
+            transition: background-color 0.3s, padding 0.3s;
         }
-
+        
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
         }
 
         .logo {
             font-size: 28px;
-            font-weight: 700;
+            font-weight: 800;
             color: var(--white-color);
             text-decoration: none;
         }
-
+        
         .logo span {
             color: var(--primary-color);
         }
@@ -76,27 +98,26 @@
         }
 
         nav ul li {
-            margin-right: 25px; /* Margin is now on the right */
+            margin-right: 30px;
         }
 
         nav ul li a {
             text-decoration: none;
             color: var(--white-color);
             font-size: 16px;
-            font-weight: 400;
+            font-weight: 700;
             transition: color 0.3s;
         }
-
+        
         nav ul li a.active,
         nav ul li a:hover {
             color: var(--primary-color);
         }
 
-
         /* ----- Hero Section ----- */
         .hero-section {
-            background-image: linear-gradient(rgba(45, 52, 54, 0.6), rgba(45, 52, 54, 0.6)), url('https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=2036&auto=format&fit=crop');
-            height: 75vh;
+            background-image: linear-gradient(rgba(45, 52, 54, 0.7), rgba(45, 52, 54, 0.7)), url('https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=2036&auto=format&fit=crop');
+            height: 90vh;
             background-size: cover;
             background-position: center;
             display: flex;
@@ -107,56 +128,36 @@
             position: relative;
         }
 
-        .hero-content {
-            max-width: 800px;
-        }
-
         .hero-content h1 {
-            font-size: 52px;
-            font-weight: 700;
-            margin: 0 0 15px 0;
-            line-height: 1.4;
-        }
-
-        .hero-content p {
-            font-size: 18px;
-            margin-bottom: 30px;
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.3;
         }
         
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
         /* ----- Search Form ----- */
         .search-form {
             display: flex;
             background: var(--white-color);
             border-radius: 8px;
             padding: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         }
-
+        
         .input-group {
             display: flex;
             align-items: center;
             flex-grow: 1;
         }
+        .input-group:not(:last-child) { border-left: 1px solid var(--border-color); }
+        .input-group i { font-size: 20px; color: #888; margin: 0 15px; }
+        .input-group input { border: none; outline: none; width: 100%; padding: 10px 0; font-size: 16px; font-family: 'Vazirmatn', sans-serif; }
         
-        .input-group:not(:last-child) {
-            border-left: 1px solid #e0e0e0;
-        }
-
-        .input-group i {
-            font-size: 20px;
-            color: #888;
-            margin: 0 15px;
-        }
-
-        .input-group input {
-            border: none;
-            outline: none;
-            width: 100%;
-            padding: 10px 0;
-            font-size: 16px;
-            font-family: 'Vazirmatn', sans-serif;
-        }
-
         .search-button {
             background-color: var(--primary-color);
             color: var(--white-color);
@@ -166,67 +167,165 @@
             font-size: 16px;
             font-weight: 700;
             cursor: pointer;
-            font-family: 'Vazirmatn', sans-serif;
             transition: background-color 0.3s;
             display: flex;
             align-items: center;
             gap: 8px;
-            margin-right: 10px; /* Spacing from input */
+            margin-right: 10px;
         }
+        .search-button:hover { background-color: #d63031; }
 
-        .search-button:hover {
-            background-color: #d63031;
-        }
-        
         /* ----- Categories Section ----- */
         .categories-section {
-            padding: 60px 0;
-            background-color: var(--white-color); /* The section itself is white */
-            margin-top: -80px; /* Pulls the section up over the hero image */
+            background-color: var(--light-gray);
+            margin-top: -80px; /* Overlap with hero */
             position: relative;
             z-index: 50;
-            padding-top: 120px; /* Adds space for the overlapping part */
-        }
-        
-        .categories-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            padding-top: 120px;
         }
 
+        .categories-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+        }
+        
         .category-box {
             background: var(--white-color);
-            border: 1px solid #eaeaea;
+            border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 25px;
+            padding: 30px;
             text-align: center;
-            width: 180px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
             transition: transform 0.3s, box-shadow 0.3s;
         }
+        .category-box:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(0,0,0,0.08); }
+        .category-box .icon { font-size: 40px; color: var(--primary-color); margin-bottom: 20px; }
+        .category-box h3 { font-size: 18px; font-weight: 700; margin: 0 0 5px 0; }
+        .category-box p { font-size: 14px; color: #777; margin: 0; }
 
-        .category-box:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+        /* ----- Featured Listings Section ----- */
+        .listings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        .category-box .icon {
-            font-size: 40px;
+        .listing-card {
+            background: var(--white-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .listing-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.12); }
+        .listing-card img { width: 100%; height: 220px; object-fit: cover; }
+        .listing-content { padding: 20px; }
+        .listing-category {
+            background: rgba(232, 67, 67, 0.1);
             color: var(--primary-color);
-            margin-bottom: 15px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 10px;
         }
-        
-        .category-box h3 {
-            font-size: 18px;
-            margin: 0 0 5px 0;
-            color: var(--text-color);
+        .listing-title { font-size: 22px; font-weight: 700; margin: 0 0 10px 0; color: var(--secondary-color); }
+        .listing-location { color: #777; margin-bottom: 15px; }
+        .listing-location i { margin-left: 5px; }
+        .listing-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
         }
+        .rating .fas { color: #f1c40f; }
+        .rating span { font-weight: 700; margin-right: 5px; }
+        .price { font-size: 18px; font-weight: 800; color: var(--primary-color); }
 
-        .category-box p {
+        /* ----- How It Works Section ----- */
+        .how-it-works-section {
+            background-color: var(--white-color);
+        }
+        .how-it-works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+        .step-box .icon {
+            font-size: 50px;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            background: #fdf2f2;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .step-box h3 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+        .step-box p { color: #777; line-height: 1.7; }
+        
+        /* ----- Testimonials Section ----- */
+        .testimonial-card {
+            background: var(--white-color);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .testimonial-text { font-style: italic; color: #555; margin-bottom: 20px; line-height: 1.8; }
+        .testimonial-author img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 3px solid var(--primary-color);
+        }
+        .author-name { font-weight: 700; font-size: 18px; }
+        .author-title { color: #888; font-size: 14px; }
+
+        /* ----- Footer ----- */
+        footer {
+            background-color: var(--secondary-color);
+            color: #bdc3c7;
+            padding-top: 60px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            padding-bottom: 40px;
+        }
+        .footer-col h4 { font-size: 18px; color: var(--white-color); margin-bottom: 20px; font-weight: 700; }
+        .footer-col p { line-height: 1.8; }
+        .footer-col ul { list-style: none; padding: 0; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul a { text-decoration: none; color: #bdc3c7; transition: color 0.3s; }
+        .footer-col ul a:hover { color: var(--primary-color); }
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white-color);
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            margin-left: 8px;
+            transition: background-color 0.3s;
+        }
+        .social-links a:hover { background-color: var(--primary-color); }
+
+        .footer-bottom {
+            border-top: 1px solid #3e5165;
+            padding: 20px 0;
+            text-align: center;
             font-size: 14px;
-            color: #777;
-            margin: 0;
         }
 
     </style>
@@ -235,15 +334,14 @@
 
     <!-- Header -->
     <header>
-        <div class="nav-container">
-            <a href="#" class="logo">شوێن<span>دۆز</span></a>
+        <div class="container nav-container">
+            <a href="#" class="logo">Daleel<span>.</span></a>
             <nav>
                 <ul>
                     <li><a href="#" class="active">سەرەکی</a></li>
-                    <li><a href="#">چۆن کاردەکات</a></li>
                     <li><a href="#">گەڕان</a></li>
-                    <li><a href="#">پێداچوونەوە</a></li>
                     <li><a href="#">بلۆگ</a></li>
+                    <li><a href="#">دەربارە</a></li>
                     <li><a href="#">پەیوەندی</a></li>
                 </ul>
             </nav>
@@ -252,30 +350,30 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="hero-content">
-            <h1>باشترین شوێن بۆ دۆزینەوە و گەڕانی هەموو ئەوەی پێویستتە</h1>
-            <p>باشترین شوێن، چێشتخانە، هۆتێل، خانووبەرە و زۆری تر تەنها بە یەک کرتە بدۆزەرەوە.</p>
-            
-            <!-- Search Form -->
-            <form class="search-form">
-                <div class="input-group">
-                    <i class="fa-solid fa-utensils"></i>
-                    <input type="text" placeholder="چی؟ نموونە: چێشتخانە، بازاڕ، ئۆتۆمبێل">
-                </div>
-                <div class="input-group">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <input type="text" placeholder="شوێن: نموونە: سلێمانی، هەولێر">
-                </div>
-                <button type="submit" class="search-button">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    گەڕان
-                </button>
-            </form>
+        <div class="container">
+            <div class="hero-content">
+                <h1>ڕێبەری تۆ بۆ دۆزینەوەی باشترینەکان</h1>
+                <p>باشترین شوێن، چێشتخانە، هۆتێل، و خزمەتگوزارییەکان لە شارەکەتدا تەنها بە یەک کرتە بدۆزەرەوە.</p>
+                <form class="search-form">
+                    <div class="input-group">
+                        <i class="fa-solid fa-search"></i>
+                        <input type="text" placeholder="چی؟ نموونە: قاوەخانە، بازاڕ...">
+                    </div>
+                    <div class="input-group">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <input type="text" placeholder="شوێن: نموونە: سلێمانی، هەولێر...">
+                    </div>
+                    <button type="submit" class="search-button">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        گەڕان
+                    </button>
+                </form>
+            </div>
         </div>
     </section>
-    
+
     <!-- Categories Section -->
-    <section class="categories-section">
+    <section class="categories-section section-padding">
         <div class="container">
             <div class="categories-container">
                 <div class="category-box">
@@ -306,6 +404,190 @@
             </div>
         </div>
     </section>
+
+    <!-- Featured Listings Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>شوێنە پێشنیارکراوەکان</h2>
+                <p>ئەو شوێنانەی کە زۆرترین هەڵسەنگاندنیان هەیە و بەکارهێنەرانمان خۆشیان دەوێن.</p>
+            </div>
+            <div class="listings-grid">
+                <!-- Listing 1 -->
+                <div class="listing-card">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1974" alt="چێشتخانە">
+                    <div class="listing-content">
+                        <span class="listing-category">چێشتخانە</span>
+                        <h3 class="listing-title">چێشتخانەی شاری جوان</h3>
+                        <p class="listing-location"><i class="fas fa-map-marker-alt"></i> سلێمانی، شەقامی سالم</p>
+                        <div class="listing-footer">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.5</span>
+                            </div>
+                            <div class="price">$$$</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Listing 2 -->
+                <div class="listing-card">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070" alt="هۆتێل">
+                    <div class="listing-content">
+                        <span class="listing-category">هۆتێل</span>
+                        <h3 class="listing-title">هۆتێل گراند میلینیۆم</h3>
+                        <p class="listing-location"><i class="fas fa-map-marker-alt"></i> هەولێر، شەقامی شەست مەتری</p>
+                        <div class="listing-footer">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                            <div class="price">$$$$</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Listing 3 -->
+                <div class="listing-card">
+                    <img src="https://images.unsplash.com/photo-1519965942250-98455728a3f8?q=80&w=1974" alt="قاوەخانە">
+                    <div class="listing-content">
+                        <span class="listing-category">قاوەخانە</span>
+                        <h3 class="listing-title">کافێی گۆشە</h3>
+                        <p class="listing-location"><i class="fas fa-map-marker-alt"></i> دهۆک، پارکی نەورۆز</p>
+                        <div class="listing-footer">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>4.0</span>
+                            </div>
+                            <div class="price">$$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works-section section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>چۆن کاردەکات؟</h2>
+                <p>تەنها بە سێ هەنگاوی سادە، باشترین شوێنەکان لە دەوروبەرت بدۆزەرەوە.</p>
+            </div>
+            <div class="how-it-works-grid">
+                <div class="step-box">
+                    <div class="icon"><i class="fas fa-search"></i></div>
+                    <h3>١. گەڕان بۆ شوێن</h3>
+                    <p>ئەوەی بەدوایدا دەگەڕێیت و ناوی شارەکەت بنووسە.</p>
+                </div>
+                <div class="step-box">
+                    <div class="icon"><i class="fas fa-list-check"></i></div>
+                    <h3>٢. هەڵبژاردنی باشترین</h3>
+                    <p>لە لیستی ئەنجامەکاندا، بەپێی هەڵسەنگاندن باشترین شوێن هەڵبژێرە.</p>
+                </div>
+                <div class="step-box">
+                    <div class="icon"><i class="fas fa-map-marked-alt"></i></div>
+                    <h3>٣. سەردانی بکە</h3>
+                    <p>ناونیشان و زانیارییەکان بەکاربهێنە و سەردانی شوێنەکە بکە.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section-padding">
+        <div class="container">
+             <div class="section-title">
+                <h2>بەکارهێنەرانمان چی دەڵێن؟</h2>
+                <p>ئەزموونی ئەو کەسانەی کە متمانەیان پێ کردووین.</p>
+            </div>
+            <div class="listings-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"بەڕاستی باشترین وێبسایتە بۆ دۆزینەوەی چێشتخانەی نوێ. زۆر یارمەتیدەر بوو لە گەشتەکەمدا بۆ سلێمانی."</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="بەکارهێنەر">
+                        <h4 class="author-name">ئارام قادر</h4>
+                        <span class="author-title">گەشتیار</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"وەک خاوەن بزنسێک، Daleel یارمەتی دام کڕیارەکانم بە ئاسانی بم دۆزنەوە. ستافەکەیان زۆر هاوکارە."</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="بەکارهێنەر">
+                        <h4 class="author-name">سارا عەبدوڵا</h4>
+                        <span class="author-title">خاوەن قاوەخانە</span>
+                    </div>
+                </div>
+                 <div class="testimonial-card">
+                    <p class="testimonial-text">"دیزاینەکەی زۆر سادە و ئاسانە بۆ بەکارهێنان. هەموو زانیارییەکان بە وردی دانراون و سوودم لێ بینیوە."</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/51.jpg" alt="بەکارهێنەر">
+                        <h4 class="author-name">هێمن محەمەد</h4>
+                        <span class="author-title">قوتابی</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>دەربارەی Daleel</h4>
+                    <p>ئێمە پلاتفۆرمێکین بۆ ئاسانکردنی دۆزینەوەی باشترین خزمەتگوزاری و شوێنەکان لە شارەکانی کوردستان و عێراقدا.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>لینکە خێراکان</h4>
+                    <ul>
+                        <li><a href="#">دەربارەی ئێمە</a></li>
+                        <li><a href="#">پەیوەندی</a></li>
+                        <li><a href="#">مەرج و ڕێساکان</a></li>
+                        <li><a href="#">سیاسەتی تایبەتمەندی</a></li>
+                        <li><a href="#">بلۆگ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>پۆلێنەکان</h4>
+                    <ul>
+                        <li><a href="#">چێشتخانەکان</a></li>
+                        <li><a href="#">هۆتێلەکان</a></li>
+                        <li><a href="#">بازاڕەکان</a></li>
+                        <li><a href="#">نەخۆشخانەکان</a></li>
+                        <li><a href="#">شوێنە گەشتیارییەکان</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>پەیوەندیمان پێوە بکە</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> سلێمانی، کوردستان، عێراق</li>
+                        <li><i class="fas fa-phone"></i> +٩٦٤ ٧٧٠ ١٢٣ ٤٥٦٧</li>
+                        <li><i class="fas fa-envelope"></i> info@daleel.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>مافی لەبەرگرتنەوەی پارێزراوە بۆ Daleel © ٢٠٢٣</p>
+        </div>
+    </footer>
 
 </body>
 </html>
